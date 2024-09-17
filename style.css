@@ -21,6 +21,17 @@ a {
 body {
   font-family: "Poppins", system-ui;
 }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow:hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 .container {
   width: 100%;
@@ -54,7 +65,6 @@ body {
 .main-menu {
   display: flex;
   align-items: center;
-  gap: 2rem;
 }
 
 .menu-btn {
@@ -67,6 +77,16 @@ body {
   z-index: 9999;
   cursor: pointer;
   display: none;
+}
+
+.main-menu {
+  width: 100%;
+  gap: 2rem;
+  margin-left: 2rem;
+  @media (width > 992px) {
+    gap: 4rem;
+    margin-left: 10rem;
+  }
 }
 
 .nav-link {
@@ -84,4 +104,31 @@ body {
   outline: none;
   color: var(--clr-secondary);
   text-decoration: underline    ;
+}
+
+.search-link {
+  margin-left: auto;
+}
+
+@media (width < 768px) {
+  .menu-btn {
+    display: block;
+  }
+  .main-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--clr-bg);
+    box-shadow: 0 5px 5px #00000045;
+    z-index: 1001;
+    flex-direction: column;
+    width: 50vw;
+    gap: 0;
+  }
+  .nav-link {
+    padding: 2rem;
+  }
+  .search-link {
+    margin: 0;
+  }
 }
