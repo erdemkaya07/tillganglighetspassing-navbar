@@ -68,6 +68,22 @@ body {
   align-items: center;
 }
 
+.skip-link {
+  display: inline-block;
+  padding: 1rem;
+  position: absolute;
+  top: 10rem;
+  background-color: #fff;
+  border-radius: 0 1rem 1rem 0;
+  border: 1px solid #333;
+  left: -100vw;
+  transition: 300ms;
+}
+
+.skip-link:focus {
+  left:0;   
+}
+
 .menu-btn {
   font-size: 1.5rem;
   background-color: transparent;
@@ -125,8 +141,7 @@ body {
     flex-direction: column;
     width: 50vw;
     gap: 0;
-    transform: translateX(100%);
-    transition: transform 300ms ease-out;
+
   }
   .nav-link {
     padding: 2rem;
@@ -134,7 +149,22 @@ body {
   .search-link {
     margin: 0;
   }
-  .menu-btn[aria-expanded="true"] ~ .main-menu {
-    transform: translateX(0);
+  .hide {
+    display: none;
   }
+  .menu-btn[aria-expanded="true"] ~ .main-menu {
+    animation: openMenu 300ms forwards;
+  }
+  .menu-btn[aria-expanded="false"] ~ .main-menu {
+    animation: closeMenu 300ms forwards;
+  }
+}
+
+@keyframes openMenu {
+  0% {transform: translate(100%);}
+  100% {transform: translateX(0);}
+}
+@keyframes closeMenu {
+  0% {transform: translate(0);}
+  100% {transform: translateX(100%);}
 }
