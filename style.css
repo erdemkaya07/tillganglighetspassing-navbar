@@ -137,6 +137,7 @@ body {
     right: 0;
     background-color: var(--clr-bg);
     box-shadow: 0 5px 5px #00000045;
+    border-radius: 0 0 0 10px;
     z-index: 1001;
     flex-direction: column;
     width: 50vw;
