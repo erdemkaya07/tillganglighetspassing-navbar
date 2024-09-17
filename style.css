@@ -20,6 +20,7 @@ a {
 }
 body {
   font-family: "Poppins", system-ui;
+  overflow-x: hidden;
 }
 .visually-hidden {
   position: absolute;
@@ -124,11 +125,15 @@ body {
     flex-direction: column;
     width: 50vw;
     gap: 0;
+    transform: translateX(100%);
   }
   .nav-link {
     padding: 2rem;
   }
   .search-link {
     margin: 0;
+  }
+  .menu-btn[aria-expanded="true"] ~ .main-menu {
+    transform: translateX(0);
   }
 }
